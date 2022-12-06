@@ -1,11 +1,14 @@
 using RestaurantASP.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<RestaurauntDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("RestaurauntDbContext") ?? throw new InvalidOperationException("Connection string 'RestaurauntDbContext' not found.")));
 
 builder.Services.AddDbContext<RestaurantDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("RestaurantContext")));
