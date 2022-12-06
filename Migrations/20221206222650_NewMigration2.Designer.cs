@@ -10,8 +10,8 @@ using RestaurantASP.Models;
 namespace mgonzales3312Final21.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    [Migration("20221206213406_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221206222650_NewMigration2")]
+    partial class NewMigration2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
