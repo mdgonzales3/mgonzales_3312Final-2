@@ -20,11 +20,16 @@ namespace mgonzales_3312Final_2_1.Pages.Restaurants
 
         public IList<Restaurant> Restaurant { get;set; } = default!;
 
+        [BindProperty(SupportsGet = true)]
+        public int PageNum {get; set;} = 1;
+
+        public int PageSize {get; set;} = 10;
+
         public async Task OnGetAsync()
         {
             if (_context.Restaurants != null)
             {
-                Restaurant = await _context.Restaurants.ToListAsync();
+                Restaurant = await _context.Restaurants.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
             }
         }
     }
