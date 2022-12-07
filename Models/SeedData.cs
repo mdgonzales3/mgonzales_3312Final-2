@@ -22,6 +22,9 @@ namespace RestaurantASP.Models
                         Price = 12.50,
                         Tossed = true,
                         Rating = 5.5,
+                        Reviews = new List<Review>{
+                        new Review {Rating = 5.3}
+                        }
                     },
                    new Restaurant
                     {
@@ -30,6 +33,9 @@ namespace RestaurantASP.Models
                         Price = 11.99,
                         Tossed = true,
                         Rating = 3.5,
+                        Reviews = new List<Review>{
+                        new Review {Rating = 4.9}
+                        }
                     },
                     new Restaurant
                     {

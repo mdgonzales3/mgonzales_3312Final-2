@@ -8,5 +8,7 @@ namespace RestaurantASP.Models
 		{
 		}
 		public DbSet<Restaurant> Restaurants {get; set;} = default!;
+
+		public DbSet<Review> Reviews {get; set;} = default!;
 	}
 }

@@ -34,6 +34,7 @@ namespace mgonzales3312Final21.Migrations
 
                     b.Property<string>("RestaurantName")
                         .IsRequired()
+                        .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Tossed")
@@ -50,23 +51,17 @@ namespace mgonzales3312Final21.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("REAL");
-
                     b.Property<double>("Rating")
                         .HasColumnType("REAL");
 
                     b.Property<int>("RestaurantID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Tossed")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("ReviewID");
 
                     b.HasIndex("RestaurantID");
 
-                    b.ToTable("Review");
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("RestaurantASP.Models.Review", b =>
