@@ -17,7 +17,7 @@ public class AddReviewModel : PageModel
 
     [BindProperty]
      public Review Review {get; set;} = default!;
-     public SelectList RestaurantDropDown {get; set;} = default!;
+     public SelectList RestaurantDropDown {get; set;} = default!; 
 
     public AddReviewModel(RestaurantASP.Models.RestaurantDbContext context,ILogger<AddReviewModel> logger)
     {

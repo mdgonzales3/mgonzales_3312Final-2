@@ -10,11 +10,20 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Restaurant[0].RestaurantName)
+                @{
+                    // Alternate sort order
+                    var firstSort = "name_asc";
+                    if (Model.CurrentSort == "name_asc")
+                    {
+                        firstSort = "name_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@firstSort">@Html.DisplayNameFor(model => model.Restaurant[0].RestaurantName)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant[0].Location)
