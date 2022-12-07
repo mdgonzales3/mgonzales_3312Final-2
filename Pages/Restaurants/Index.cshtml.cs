@@ -28,10 +28,23 @@ namespace mgonzales_3312Final_2_1.Pages.Restaurants
         [BindProperty(SupportsGet = true)]
         public string CurrentSort {get; set;} = string.Empty; //Sorting variable
 
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString {get; set;}
+
         
 
         public async Task OnGetAsync()
         {
+            var restaurants = from r in _context.Restaurants
+                                select r;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                restaurants = restaurants.Where(r => r.RestaurantName.Contains(SearchString));
+            }
+
+            Restaurant = await restaurants.ToListAsync();
+
+
             var query = _context.Restaurants.Select(r => r); //query for sorting ascending and descending
 
             

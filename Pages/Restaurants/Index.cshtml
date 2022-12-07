@@ -11,6 +11,13 @@
     <a asp-page="Create">Create New</a>
 </p>
 
+<form>
+    <p>
+        Restaurant Name: <input type="text" asp-for="SearchString" />
+                    <input type="submit" value="Search" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -23,7 +30,7 @@
                         firstSort = "name_desc";
                     }
                 }
-                <a asp-page="./Index" asp-route-CurrentSort="@firstSort">@Html.DisplayNameFor(model => model.Restaurant[0].RestaurantName)</a>
+                <a asp-page="./Index" asp-route-CurrentSort ="@firstSort">@Html.DisplayNameFor(model => model.Restaurant[0].RestaurantName)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant[0].Location)
